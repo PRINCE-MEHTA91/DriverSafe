@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "243336852531",
+    "project_id": "driversafe-a5f3b",
+    "storage_bucket": "driversafe-a5f3b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243336852531:android:e1763601c275e892b29f46",
+        "android_client_info": {
+          "package_name": "com.example.driversafe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ3NcrYK57czT5R9fpHCPt7_QnBf-QQQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
