@@ -1,47 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@drawable/bg_gradient">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNav">
 
-        <!-- App Name -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DriverSafe"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            android:textColor="#1976D2"
-            android:layout_marginTop="60dp"/>
-
-        <!-- Welcome Text -->
-        <TextView
-            android:id="@+id/welcomeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:textSize="20sp"
-            android:textColor="#1976D2"
-            android:layout_marginTop="20dp"/>
-
-        <!-- Logout Button -->
-        <Button
-            android:id="@+id/logoutBtn"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:backgroundTint="#D32F2F"
-            android:textColor="@android:color/white"
-            android:textAllCaps="false"
-            android:layout_marginTop="60dp"/>
+            android:orientation="vertical"
+            android:padding="20dp">
 
-    </LinearLayout>
+            <!-- LOCATION -->
 
-</ScrollView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Your Location"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="Raghogarh, MP"
+                        android:textSize="16sp"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/profile2"/>
+            </RelativeLayout>
+
+
+            <!-- SEARCH BAR -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/search_bg"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/search"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="Enter Destination"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="10dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/send"/>
+            </LinearLayout>
+
+
+            <!-- START BUTTON -->
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="START JOURNEY"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@null"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_gradient"/>
+
+
+            <!-- WHITE CARD SECTION -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:background="@drawable/card_bg"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+
+                <TextView
+                    android:text="Explore Nearby Places"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+                <!-- Places Card -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/place_card"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:text="🚗 Taj Mahal - 320 km"
+                            android:textSize="15sp"
+                            android:layout_marginBottom="6dp"/>
+
+                        <TextView
+                            android:text="🚗 Khajuraho - 200 km"
+                            android:textSize="15sp"
+                            android:layout_marginBottom="6dp"/>
+
+                        <TextView
+                            android:text="🚗 Orchha - 150 km"
+                            android:textSize="15sp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/travel" />
+                </LinearLayout>
+
+
+                <!-- Feedback -->
+
+                <TextView
+                    android:text="Write your feedback..."
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Write your feedback..."
+                    android:background="@drawable/search_bg"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <RatingBar
+                    android:layout_width="200dp"
+                    android:layout_height="50sp"
+                    android:numStars="5"
+                    android:layout_marginTop="5dp"/>
+
+
+                <Button
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:text="SUBMIT"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/btn_gradient"
+                    android:backgroundTint="@null"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!-- BOTTOM NAVIGATION -->
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/nav_bg"
+        app:menu="@menu/bottom_menu"/>
+
+</RelativeLayout>
