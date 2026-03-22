@@ -235,6 +235,8 @@
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
+        app:itemIconTint="@color/nav_color"
+        app:itemTextColor="@color/nav_color"
         app:menu="@menu/bottom_menu"/>
 
 </RelativeLayout>

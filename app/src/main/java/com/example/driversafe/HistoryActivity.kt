@@ -1,32 +1,42 @@
 package com.example.driversafe
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+import com.google.android.material.bottomnavigation.BottomNavigationView
 class HistoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        enableEdgeToEdge()
-
         setContentView(R.layout.activity_history)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
 
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        bottomNav.selectedItemId = R.id.nav_history
 
-            v.setPadding(
-                systemBars.left,
-                systemBars.top,
-                systemBars.right,
-                systemBars.bottom
-            )
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
 
-            insets
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+
+                R.id.nav_documents -> {
+                    startActivity(Intent(this, DocumentsActivity::class.java))
+                    true
+                }
+
+                R.id.nav_profile -> {
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    true
+                }
+
+                else -> false
+            }
         }
     }
 }

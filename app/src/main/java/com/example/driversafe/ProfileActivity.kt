@@ -1,32 +1,49 @@
 package com.example.driversafe
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        enableEdgeToEdge()
-
         setContentView(R.layout.activity_profile)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        // ✅ Bottom Navigation connect (IMPORTANT: bottomNav id use karo)
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
 
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+        // 🔵 Current selected item
+        bottomNav.selectedItemId = R.id.nav_profile
 
-            v.setPadding(
-                systemBars.left,
-                systemBars.top,
-                systemBars.right,
-                systemBars.bottom
-            )
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
 
-            insets
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+                }
+
+                R.id.nav_history -> {
+                    startActivity(Intent(this, HistoryActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+                }
+
+                R.id.nav_documents -> {
+                    startActivity(Intent(this, DocumentsActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    true
+                }
+
+                R.id.nav_profile -> {
+                    true // already on profile
+                }
+
+                else -> false
+            }
         }
     }
 }
