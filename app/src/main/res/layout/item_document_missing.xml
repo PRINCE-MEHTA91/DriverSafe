@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@drawable/bg_dashed_red"
+    android:padding="16dp"
+    android:layout_marginTop="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Title -->
+    <TextView
+        android:text="Insurance Policy"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Warning text -->
+    <TextView
+        android:text="Required — upload to activate your account"
+        android:textColor="#EF4444"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Status -->
+    <TextView
+        android:text="Missing"
+        android:textColor="#DC2626"
+        android:background="@drawable/chip_red"
+        android:padding="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Upload Button -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="Upload Insurance"
+        android:textColor="#DC2626"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"/>
+
+</LinearLayout>

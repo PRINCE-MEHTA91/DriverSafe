@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- System Colors -->
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
     <color name="blue">#3076e6</color>
+
+    <!-- Base UI -->
+    <color name="bg_page">#F8F9FB</color>
+    <color name="card_border">#E2E8F0</color>
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="text_muted_blue">#8A9BB5</color>
+
+    <!-- Header -->
+    <color name="dark_navy">#1A1A2E</color>
+
+    <!-- Indigo (Driving License) -->
+    <color name="accent_indigo">#4F46E5</color>
+    <color name="accent_indigo_light">#C7D2FE</color>
+    <color name="bg_indigo_light">#EEF2FF</color>
+
+    <!-- Orange (RC) -->
+    <color name="accent_orange">#EA580C</color>
+    <color name="bg_orange_light">#FFF7ED</color>
+
+    <!-- Red (Insurance) -->
+    <color name="accent_red">#DC2626</color>
+    <color name="bg_red_light">#FEF2F2</color>
+    <color name="red_border">#FCA5A5</color>
+
+    <!-- Green (Verified) -->
+    <color name="green_verify">#16A34A</color>
+    <color name="bg_green_light">#F0FDF4</color>
+
+    <!-- Amber (Expiring) -->
+    <color name="amber_text">#A16207</color>
+    <color name="bg_amber_light">#FEF9C3</color>
+
+    <!-- Bottom nav -->
+    <color name="nav_active">#4F46E5</color>
+    <color name="nav_inactive">#94A3B8</color>
 </resources>
