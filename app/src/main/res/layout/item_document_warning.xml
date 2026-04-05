@@ -1,36 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="#1E293B"
-    android:padding="16dp"
-    android:layout_marginTop="12dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/white">
 
-    <!-- Title -->
-    <TextView
-        android:text="Registration Certificate"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <!-- Validity -->
-    <TextView
-        android:text="Valid till: 09 Nov 2026"
-        android:textColor="#94A3B8"
-        android:layout_marginTop="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <!-- Document Name -->
+        <TextView
+            android:id="@+id/docName"
+            android:text="Registration Certificate"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <!-- Status -->
-    <TextView
-        android:text="Verified"
-        android:textColor="#10B981"
-        android:background="@drawable/status_background"
-        android:padding="6dp"
-        android:layout_marginTop="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        <!-- Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            >
+
+            <!-- Upload Button -->
+            <Button
+                android:id="@+id/uploadBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Upload"
+                android:textColor="@android:color/white"
+                android:background="@drawable/btn_gradient"
+                app:backgroundTint="@null"/>
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"/>
+
+            <!-- View Button -->
+            <Button
+                android:id="@+id/viewBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="view"
+                android:textColor="@android:color/white"
+                android:background="@drawable/btn_gradient"
+                app:backgroundTint="@null"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

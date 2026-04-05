@@ -2,7 +2,10 @@ package com.example.driversafe
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -33,6 +36,28 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+      //start Button
+        val destination = findViewById<EditText>(R.id.destinationEditText)
+        val startBtn = findViewById<Button>(R.id.startButton)
+
+        startBtn.setOnClickListener {
+
+            val destinationText = destination.text.toString().trim()
+
+            if (destinationText.isEmpty()) {
+                destination.error = "Enter destination first"
+                destination.requestFocus()
+                return@setOnClickListener
+            }
+
+            val intent = Intent(this, JourneyMapActivity::class.java)
+            intent.putExtra("to", destinationText)
+
+            startActivity(intent)
+        }
+
+
+
 
         // 🔥 Bottom Navigation Setup
         bottomNav = findViewById(R.id.bottomNav)

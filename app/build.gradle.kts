@@ -17,6 +17,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 
     buildTypes {
         release {
@@ -31,8 +34,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
+    }
+    kotlin {
+        sourceSets.all {
+            languageSettings.optIn("androidx.camera.core.ExperimentalGetImage")
+        }
     }
 }
 dependencies {
@@ -53,4 +62,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    // 🌍 Google Maps
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+
+// 📷 CameraX
+    implementation("androidx.camera:camera-core:1.3.3")
+    implementation("androidx.camera:camera-camera2:1.3.3")
+    implementation("androidx.camera:camera-lifecycle:1.3.3")
+    implementation("androidx.camera:camera-view:1.3.3")
+
+// 🤖 ML Kit Face Detection
+    implementation("com.google.mlkit:face-detection:16.1.5")
+
+// 🔥 Firebase Realtime Database (you used it in code!)
+    implementation("com.google.firebase:firebase-database")
 }
