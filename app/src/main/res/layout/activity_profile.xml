@@ -1,217 +1,260 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient">
 
-    <!-- SCROLLABLE CONTENT -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottomNav"
+    <!-- ✅ SCROLL SECTION START -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:fillViewport="true"
-        android:clipToPadding="false"
-        android:paddingBottom="100dp">
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/bg_gradient"
             android:padding="16dp">
 
-            <!-- Title -->
+            <!-- Header -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="My Profile"
+                android:textColor="@android:color/white"
                 android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"/>
+                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Manage your personal details"
-                android:textColor="#E0E0E0"
-                android:layout_marginBottom="16dp"/>
 
             <!-- Profile Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="6dp"
-                android:layout_marginBottom="16dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/profileImage"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/profile1"
-                        android:background="@drawable/circle_bg"
-                        android:padding="10dp"/>
-
-                    <TextView
-                        android:id="@+id/tvName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Name"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="12dp"
-                        android:gravity="center"/>
-
-                    <TextView
-                        android:id="@+id/tvEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Email"
-                        android:gravity="center"
-                        android:textColor="#666"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Info Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="6dp">
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="359dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
-                    <!-- Phone -->
+                    <!-- LEFT: Profile Image -->
+                    <ImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:background="@drawable/circle_bg"
+                        android:padding="10dp"
+                        android:src="@drawable/profile1" />
+
+                    <!-- RIGHT: Name + Email -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Name"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="email@example.com"
+                            android:layout_marginTop="10dp"
+                            android:textColor="#666"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <!-- Details Form Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Phone"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
                     <EditText
                         android:id="@+id/etPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter phone"
-                        android:layout_marginBottom="10dp"/>
+                        android:inputType="phone"
+                        android:layout_marginBottom="5dp" />
 
-                    <!-- License -->
                     <TextView
-                        android:layout_height="match_parent"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="Driver License No"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
                     <EditText
                         android:id="@+id/etLicense"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter license number"
-                        android:layout_marginBottom="10dp"/>
+                        android:layout_marginBottom="5dp" />
 
-                    <!-- SOS -->
                     <TextView
-                        android:layout_height="match_parent"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:text="SOS Contact"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
                     <EditText
                         android:id="@+id/etSOS"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Emergency contact number"
-                        android:layout_marginBottom="10dp"/>
+                        android:inputType="phone"
+                        android:layout_marginBottom="5dp" />
 
-                    <!-- Gender -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Gender"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
-                    <Spinner
-                        android:id="@+id/spGender"
+                    <!-- Gender + Blood Group in one row -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"/>
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="5dp">
 
-                    <!-- Blood -->
+                        <!-- LEFT: Gender -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Gender"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spGender"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp" />
+
+                        </LinearLayout>
+
+                        <!-- RIGHT: Blood Group -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Blood Group"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spBlood"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                     <TextView
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        android:text="Blood Group"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"/>
-                    <Spinner
-                        android:id="@+id/spBlood"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"/>
-
-                    <!-- Vehicles -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
                         android:text="Vehicle Numbers"
-                        android:textStyle="bold"
-                        android:textColor="@color/black"
-                        android:layout_marginTop="10dp"/>
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:id="@+id/vehicleContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"/>
+                        android:orientation="vertical" />
 
                     <Button
                         android:id="@+id/btnAddVehicle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="+ Add Vehicle"
-                        android:textColor="@android:color/white"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/btn_gradient"
-                        app:backgroundTint="@null"/>
+                        android:text="+ Add Vehicle"
+                        android:textColor="@android:color/white"
+                        app:backgroundTint="@null" />
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- SAVE -->
+            <!-- Save Button -->
             <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:text="SAVE"
+                android:id="@+id/btnSave"
+                android:layout_width="180dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/btn_gradient"
+                android:text="SAVE"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
-                android:background="@drawable/btn_gradient"
-                app:backgroundTint="@null"/>
+                app:backgroundTint="@null" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+    <!-- ✅ SCROLL SECTION END -->
 
-    <!-- FIXED NAV -->
+    <!-- Bottom Navigation (fixed, outside scroll) -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
+        android:background="@android:color/white"
         app:itemIconTint="@color/nav_color"
         app:itemTextColor="@color/nav_color"
-        app:menu="@menu/bottom_menu"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

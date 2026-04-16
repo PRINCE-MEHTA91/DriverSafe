@@ -6,6 +6,7 @@ import android.util.Patterns
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class SignupActivity : AppCompatActivity() {
 
@@ -38,6 +39,7 @@ class SignupActivity : AppCompatActivity() {
         val userPassword = password.text.toString().trim()
         val confirmPass = confirmPassword.text.toString().trim()
 
+        // ✅ Validation
         if (name.isEmpty()) {
             fullName.error = "Enter Name"
             return
@@ -54,16 +56,34 @@ class SignupActivity : AppCompatActivity() {
             confirmPassword.error = "Password not match"
             return
         }
+
+        // 🔥 CREATE USER FIRST
         mAuth.createUserWithEmailAndPassword(userEmail, userPassword)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
 
-                    mAuth.currentUser?.sendEmailVerification()
+                    val user = mAuth.currentUser
 
-                    Toast.makeText(this, "Account Created! Verify Email", Toast.LENGTH_LONG).show()
+                    // 🔥 NOW UPDATE NAME (IMPORTANT)
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(name)
+                        .build()
 
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
+                    user?.updateProfile(profileUpdates)?.addOnCompleteListener {
+
+                        user.reload()   // 🔥 IMPORTANT
+
+                        val updatedUser = FirebaseAuth.getInstance().currentUser
+
+                        Toast.makeText(this, "Name: ${updatedUser?.displayName}", Toast.LENGTH_LONG).show()
+
+                        updatedUser?.sendEmailVerification()
+
+                        Toast.makeText(this, "Account Created! Verify Email", Toast.LENGTH_LONG).show()
+
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    }
 
                 } else {
                     Toast.makeText(this, it.exception?.message, Toast.LENGTH_SHORT).show()

@@ -56,15 +56,18 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-analytics")
-
     implementation("com.google.android.gms:play-services-auth:21.5.0")
-
+    implementation ("androidx.core:core-ktx:1.12.0")
+    implementation ("com.google.android.material:material:1.11.0")
+    implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.google.firebase:firebase-auth:22.3.0")
     implementation ("com.google.firebase:firebase-database:20.3.0")
     implementation ("com.google.android.material:material:1.11.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
     // 🌍 Google Maps
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")

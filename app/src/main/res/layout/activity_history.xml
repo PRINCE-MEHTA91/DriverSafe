@@ -1,54 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:background="#0F172A">
 
-    <!-- Content -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@color/cardview_light_background"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNav"
+        android:fillViewport="true">
 
-        <TextView
-            android:text="Driving History"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient">
 
-        <!-- Trips -->
-        <TextView
-            android:text="Trip 1 : Raghogarh → Bhopal"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <!-- Title -->
+            <TextView
+                android:text="Ride History"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <TextView
-            android:text="Trip 2 : Raghogarh → Indore"
-            android:textSize="16sp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            <!-- Filter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:padding="12dp"
+                android:background="@drawable/card_bg"
+                android:gravity="center_vertical">
 
-        <TextView
-            android:text="Trip 3 : Raghogarh → Gwalior"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                <TextView
+                    android:text="Select Date"
+                    android:textColor="@android:color/black"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
-    </LinearLayout>
-    <!-- BOTTOM NAVIGATION -->
+                <ImageView
+                    android:id="@+id/btnCalendar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@android:drawable/ic_menu_my_calendar"/>
+            </LinearLayout>
 
+            <!-- RIDE ITEM 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:background="@drawable/card_bg">
+
+                <!-- Date -->
+                <TextView
+                    android:text="14 Apr 2026"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#2563EB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <!-- Route -->
+                <TextView
+                    android:text="Bhopal → Indore"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <!-- Details Row -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="⏱ 2h 30m"
+                        android:textSize="13sp"
+                        android:textColor="#555"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="📍 180 km"
+                        android:textSize="13sp"
+                        android:textColor="#555"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:text="⭐ 92%"
+                        android:textSize="13sp"
+                        android:textColor="#16A34A"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- Status -->
+                <TextView
+                    android:text="Safe Ride"
+                    android:textColor="#16A34A"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <!-- RIDE ITEM 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp"
+                android:padding="16dp"
+                android:background="@drawable/card_bg">
+
+                <TextView
+
+                    android:text="13 Apr 2026"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="#2563EB"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Indore → Ujjain"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="6dp"/>
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:text="⏱ 1h 10m"
+                        android:layout_weight="1"
+                        android:textColor="#555"/>
+
+                    <TextView
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:text="📍 55 km"
+                        android:layout_weight="1"
+                        android:textColor="#555"/>
+
+                    <TextView
+                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:text="⭐ 65%"
+                        android:textColor="#DC2626"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:text="Warning Ride"
+                    android:textColor="#DC2626"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Nav -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
@@ -59,4 +197,4 @@
         app:itemTextColor="@color/nav_color"
         app:menu="@menu/bottom_menu"/>
 
-</LinearLayout>
+</RelativeLayout>

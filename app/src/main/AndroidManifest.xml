@@ -21,6 +21,7 @@
         android:theme="@style/Theme.Driversafe"
         tools:targetApi="31">
 
+
         <activity
             android:name=".JourneyMapActivity"
             android:exported="false" />
